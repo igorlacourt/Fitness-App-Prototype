@@ -71,7 +71,12 @@
     <item>
         <shape>
             <solid android:color="@android:color/white" />
-
+            <gradient
+                android:angle="0"
+                android:centerColor="#1F60BC"
+                android:endColor="#011567"
+                android:startColor="#0BC81E"
+                android:type="linear" />
             <corners android:radius="35dp" />
         </shape>
     </item>
