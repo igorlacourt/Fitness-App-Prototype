@@ -1,274 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HomeFragment">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@drawable/bg_main_top_gradient"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_main_workout_time"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_workout_24dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_main_workout_time"
-            app:layout_constraintStart_toStartOf="@+id/tv_main_workout_time"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_main_workout_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="45 min"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tv_main_calories_burned"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_main_workout_time" />
-
-        <ImageView
-            android:id="@+id/iv_main_calories_burned"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_calories_24dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_main_calories_burned"
-            app:layout_constraintStart_toStartOf="@+id/tv_main_calories_burned"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_main_calories_burned"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="300 kcal"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tv_main_fat_burned"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tv_main_workout_time"
-            app:layout_constraintTop_toBottomOf="@+id/iv_main_calories_burned" />
-
-        <ImageView
-            android:id="@+id/iv_main_fat_burned"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_fat_burned_24dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_main_fat_burned"
-            app:layout_constraintStart_toStartOf="@+id/tv_main_fat_burned"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_main_fat_burned"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="300kg"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tv_main_calories_burned"
-            app:layout_constraintTop_toBottomOf="@+id/iv_main_fat_burned" />
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@android:color/white">
 
         <LinearLayout
-            android:id="@+id/ll_main_workouts_lists"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_layer_list_shadow_top_and_bottom"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="40dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_workout_time">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Program"
-                android:textColor="@android:color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+            tools:context=".HomeFragment">
 
             <LinearLayout
+                android:id="@+id/ll_main_workouts_lists"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_workout_time">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                    android:layout_marginBottom="12dp"
+                    android:text="Program"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                    android:orientation="horizontal"
+                    android:paddingBottom="12dp">
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
+
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
+
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                    android:layout_marginTop="12dp"
+                    android:text="Full body"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Full body"
-                android:textColor="@android:color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
+
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
+
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                    android:layout_marginTop="12dp"
+                    android:text="Arms"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Arms"
-                android:textColor="@android:color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        app:cardCornerRadius="15dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
+                        <ImageView
+                            android:layout_width="340dp"
+                            android:layout_height="340dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/fitness_em_casa" />
+                    </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    app:cardCornerRadius="15dp">
-
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fitness_em_casa" />
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
-</ScrollView>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/bg_main_top_gradient">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:id="@+id/iv_main_workout_time"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_workout_24dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_main_workout_time"
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_workout_time"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_main_workout_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45 min"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_main_calories_burned"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_main_workout_time" />
+
+                <ImageView
+                    android:id="@+id/iv_main_calories_burned"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_calories_24dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_main_calories_burned"
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_calories_burned"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_main_calories_burned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300 kcal"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_main_fat_burned"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_main_workout_time"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_main_calories_burned" />
+
+                <ImageView
+                    android:id="@+id/iv_main_fat_burned"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_fat_burned_24dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_main_fat_burned"
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_fat_burned"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_main_fat_burned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300 g"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_main_calories_burned"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_main_fat_burned" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="Check full progress"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/bg_button_full_progess"
+                    android:layout_marginVertical="12dp"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_main_calories_burned"
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_calories_burned"
+                    app:layout_constraintEnd_toEndOf="@id/tv_main_calories_burned"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_card_boarder"
+                android:layout_gravity="bottom"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
